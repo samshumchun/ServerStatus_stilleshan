@@ -1,7 +1,7 @@
 FROM ubuntu:bionic-20200112 as builder
 LABEL maintainer="Stille <stille@ioiox.com>"
 
-ENV VERSION 2.0
+ENV VERSION stilleshan
 WORKDIR /
 
 COPY . /
