@@ -45,7 +45,7 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/${{ env.PROJECT }}:latest
             ${{ secrets.DOCKER_USERNAME }}/${{ env.PROJECT }}:${{ env.tag }}
 
-      - name: Sync README.md to Docker Hub
+      #- name: Sync README.md to Docker Hub
         uses: ms-jpq/sync-dockerhub-readme@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -53,14 +53,14 @@ jobs:
           repository: ${{ secrets.DOCKER_USERNAME }}/${{ env.PROJECT }}
           readme: "./README.md"
 
-      - name: Login harbor
+      #- name: Login harbor
         uses: docker/login-action@v1 
         with:
           registry: ${{ secrets.HARBOR_REGISTRY }}
           username: ${{ secrets.HARBOR_USERNAME }}
           password: ${{ secrets.HARBOR_PASSWORD }}
 
-      - name: Build and push to harbor
+      #- name: Build and push to harbor
         uses: docker/build-push-action@v2
         with:
           context: .
